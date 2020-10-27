@@ -77,9 +77,11 @@ while shutdown:
             email = input("what is your email? : ")
             tag = input("what is your tag? : ")
             position = input("what system would you like to use?\n (a) for admin, (m) for maintainance, (w) for worker: ")
-
-            person = employee(name, email, tag, position)
-            person.add()
+            if position.split().lower() == "a" or "b" or "c":
+                person = employee(name, email, tag, position)
+                person.add()
+            else:
+                print("there is no such position")
         elif question == 2:
             name = input("please provide your full name")
             employee.remove(name)
