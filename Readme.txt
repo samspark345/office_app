@@ -1,1 +1,1 @@
-This is an office tool for monitoring systems
+This is a command line interface office tool for monitoring systems
