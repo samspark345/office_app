@@ -1,15 +1,15 @@
-def message(name, greeting):
+def message(greeting):
     '''(str,str)->None
         input must be a string
         prints a message to the screen when called '''
     indent = "__"
-    starts = (len(name)+len(greeting)+len(indent)*2+2)
+    stars = (len(greeting)+len(indent)*2+4)
     print()
-    print(starts*"*")
-    print("*"+(starts-2)*" "+"*")
-    print("*", indent, name, greeting, indent, "*")
-    print("*" + (starts - 2) * " " + "*")
-    print(starts * "*")
+    print((stars+2)*"*")
+    print("*", (stars-2)*" ","*")
+    print("*", indent, greeting, indent, "*")
+    print("*", (stars - 2) * " ", "*")
+    print((stars+2) * "*")
     print()
 
 
@@ -63,12 +63,12 @@ class employee:
                 print(("systems users {}:{}").format(keys, cls.users[keys]))
 
 
-message("Hello!!! welcome", "")
+message("Hello!!! welcome")
 i = 0
-shutdown = True
-while shutdown:
+on = True
+while on:
     question = input("what do you want to do toaday?\n (1) for login, (2) for logout, (3) to see current users and (4) to shutdown\n")
-    if question.isalpha():
+    if not(question.isdigit()):
         print("Option not available please try again")
     else:
         question = int(question)
@@ -89,7 +89,7 @@ while shutdown:
         elif question == 3:
             employee.pr_user()
         elif question == 4:
-            message("Goodbye", "")
-            shutdown = False
+            message("Goodbye")
+            on = False
         else:
             print("Invalid number, please try again")
