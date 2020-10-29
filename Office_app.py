@@ -23,21 +23,21 @@ class employee:
         '''
      gets the information provided by the employee
     '''
-        self.name = name
-        self.email = email
-        self.tag = tag
-        self.work = work
+        self._name = name
+        self._email = email
+        self._tag = tag
+        self._work = work
 
     def add(self):
         '''
      adds a user to the system of choice
     '''
-        if self.work == "a":
-            self.users["admin"].append((self.name, self.tag, self.email))
-        elif self.work == "m":
-            self.users["maintenance"].append((self.name, self.tag, self.email))
-        elif self.work == "w":
-            self.users["worker"].append((self.name, self.tag, self.email))
+        if self._work == "a":
+            self.users["admin"].append((self._name, self._tag, self._email))
+        elif self._work == "m":
+            self.users["maintenance"].append((self._name, self._tag, self._email))
+        elif self._work == "w":
+            self.users["worker"].append((self._name, self._tag, self._email))
 
     @classmethod
     def remove(cls, name):
@@ -77,7 +77,7 @@ while shutdown:
             email = input("what is your email? : ")
             tag = input("what is your tag? : ")
             position = input("what system would you like to use?\n (a) for admin, (m) for maintainance, (w) for worker: ")
-            if position.split().lower() == "a" or "b" or "c":
+            if position.strip().lower() == "a" or "b" or "c":
                 person = employee(name, email, tag, position)
                 person.add()
             else:
